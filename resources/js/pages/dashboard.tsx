@@ -354,7 +354,7 @@ export default function Dashboard({
             <Link
                 href={createTransaction()}
                 aria-label="Add transaction"
-                className="fixed right-6 bottom-6 z-20 flex size-14 items-center justify-center rounded-full bg-violet-600 text-white shadow-lg shadow-violet-600/30 transition-transform hover:scale-105 hover:bg-violet-700 dark:bg-violet-500 dark:hover:bg-violet-400"
+                className="fixed right-6 bottom-6 z-20 flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-transform hover:scale-105 hover:bg-primary/90"
             >
                 <Plus className="size-6" />
             </Link>

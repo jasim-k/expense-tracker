@@ -58,13 +58,13 @@ export function StatCard({
         return (
             <Card
                 className={cn(
-                    'relative overflow-hidden border-0 bg-gradient-to-br from-violet-600 via-violet-600 to-purple-700 text-white shadow-lg shadow-violet-600/20 dark:from-violet-700 dark:via-violet-700 dark:to-purple-900',
+                    'relative overflow-hidden border border-violet-200 bg-gradient-to-br from-violet-50 via-white to-white shadow-sm dark:border-0 dark:from-violet-700 dark:via-violet-700 dark:to-purple-900 dark:shadow-lg dark:shadow-violet-600/20',
                     className,
                 )}
             >
-                <div className="pointer-events-none absolute -top-10 -right-10 size-40 rounded-full bg-white/10 blur-2xl" />
+                <div className="pointer-events-none absolute -top-10 -right-10 size-40 rounded-full bg-violet-200/40 blur-2xl dark:bg-white/10" />
                 <CardContent className="relative flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-sm font-medium text-violet-100">
+                    <div className="flex items-center gap-2 text-sm font-medium text-violet-700 dark:text-violet-100">
                         {emoji && (
                             <span className="text-lg leading-none">
                                 {emoji}
@@ -73,11 +73,13 @@ export function StatCard({
                         {IconComponent && <IconComponent className="size-4" />}
                         <span>{label}</span>
                     </div>
-                    <div className="text-3xl font-bold tracking-tight sm:text-4xl">
+                    <div className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl dark:text-white">
                         {value}
                     </div>
                     {sub && (
-                        <div className="text-sm text-violet-100/90">{sub}</div>
+                        <div className="text-sm text-violet-600/90 dark:text-violet-100/90">
+                            {sub}
+                        </div>
                     )}
                 </CardContent>
             </Card>
