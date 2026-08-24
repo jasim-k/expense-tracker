@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "laravel-best-practices": {
+      "source": "laravel/boost",
+      "sourceType": "github",
+      "skillPath": ".ai/laravel/skill/laravel-best-practices/SKILL.md",
+      "computedHash": "3f5c29d324667dfe7d79128f10a1ef891a499eaa4b624766f387ad5f506d747d"
+    },
+    "laravel-inertia-react": {
+      "source": "asyrafhussin/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/laravel-inertia-react/SKILL.md",
+      "computedHash": "b05144f7f9df5fd3cd03ce13cba822ac61970449fdf7c4c4208684258e8b1724"
+    },
+    "laravel-specialist": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/laravel-specialist/SKILL.md",
+      "computedHash": "d58e2ed3488398cb94a039f25b9d270e55dc434e16102abff9035608bec3db90"
+    }
+  }
+}
