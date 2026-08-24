@@ -1,4 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
+import { useLayoutEffect } from 'react';
 import { CtaBand } from '@/components/marketing/cta-band';
 import { DynamicFieldsShowcase } from '@/components/marketing/dynamic-fields-showcase';
 import { FaqSection } from '@/components/marketing/faq-section';
@@ -12,6 +13,22 @@ import { ProblemSection } from '@/components/marketing/problem-section';
 
 export default function Welcome() {
     const { auth } = usePage().props;
+
+    // The landing page is always light. A client-side visit from a dark-themed
+    // dashboard never re-runs the blade root template, so drop the class here
+    // too and restore it when the visitor navigates back into the app.
+    useLayoutEffect(() => {
+        const root = document.documentElement;
+        const wasDark = root.classList.contains('dark');
+
+        if (!wasDark) {
+            return;
+        }
+
+        root.classList.remove('dark');
+
+        return () => root.classList.add('dark');
+    }, []);
 
     return (
         <>

@@ -9,6 +9,9 @@ export type UseAppearanceReturn = {
     readonly updateAppearance: (mode: Appearance) => void;
 };
 
+const VERSION_KEY = 'appearance_version';
+const APPEARANCE_VERSION = '2';
+
 const listeners = new Set<() => void>();
 let currentAppearance: Appearance = 'light';
 
@@ -73,6 +76,19 @@ const handleSystemThemeChange = (): void => applyTheme(currentAppearance);
 export function initializeTheme(): void {
     if (typeof window === 'undefined') {
         return;
+    }
+
+    // Builds before the light redesign auto-wrote 'system' on a visitor's first
+    // load, which pins those browsers to their OS theme and hides the new light
+    // default entirely. Reset that one auto-written value a single time; an
+    // explicit 'light' or 'dark' choice is always left alone.
+    if (localStorage.getItem(VERSION_KEY) !== APPEARANCE_VERSION) {
+        if (getStoredAppearance() === 'system') {
+            localStorage.setItem('appearance', 'light');
+            setCookie('appearance', 'light');
+        }
+
+        localStorage.setItem(VERSION_KEY, APPEARANCE_VERSION);
     }
 
     if (!localStorage.getItem('appearance')) {
